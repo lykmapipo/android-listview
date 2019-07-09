@@ -1,0 +1,41 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+
+    lintOptions {
+        abortOnError false
+    }
+
+    defaultConfig {
+        applicationId "com.github.lykmapipo.listview.sample"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 10
+        versionName "0.1.0"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    //local dependencies
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(path: ':library')
+
+    //androidx dependencies
+    implementation "androidx.appcompat:appcompat:${ANDROIDX_APPCOMPACT_VERSION}"
+
+    // misc dependencies
+    implementation "com.github.javafaker:javafaker:${JAVA_FAKER_VERSION}"
+}
