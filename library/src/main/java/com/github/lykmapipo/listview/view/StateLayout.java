@@ -16,7 +16,6 @@ import java.lang.annotation.RetentionPolicy;
  * and state can be switched by call {@link #setState(int)}.
  *
  * @author lally elias <lallyelias87@gmail.com>
- * @version 0.1.0
  * @since 0.1.0
  */
 public class StateLayout extends FrameLayout {
