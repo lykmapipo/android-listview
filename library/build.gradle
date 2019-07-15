@@ -34,6 +34,7 @@ dependencies {
     api "androidx.annotation:annotation:${ANDROIDX_ANNOTATION_VERSION}"
     api "androidx.appcompat:appcompat:${ANDROIDX_APPCOMPACT_VERSION}"
     api "com.google.android.material:material:${MATERIAL_COMPONENTS_VERSION}"
+    api "androidx.paging:paging-runtime:${ANDROIDX_PAGING_VERSION}"
 
     // misc dependencies
     api "com.google.android.gms:play-services-tasks:${PLAY_SERVICES_TASKS_VERSION}"
