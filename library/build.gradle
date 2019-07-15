@@ -31,14 +31,14 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     //androidx dependencies
-    implementation "androidx.annotation:annotation:${ANDROIDX_ANNOTATION_VERSION}"
-    implementation "androidx.appcompat:appcompat:${ANDROIDX_APPCOMPACT_VERSION}"
-    implementation "com.google.android.material:material:${MATERIAL_COMPONENTS_VERSION}"
+    api "androidx.annotation:annotation:${ANDROIDX_ANNOTATION_VERSION}"
+    api "androidx.appcompat:appcompat:${ANDROIDX_APPCOMPACT_VERSION}"
+    api "com.google.android.material:material:${MATERIAL_COMPONENTS_VERSION}"
 
     // misc dependencies
-    implementation "com.google.android.gms:play-services-tasks:${PLAY_SERVICES_TASKS_VERSION}"
-    implementation "blue.aodev:material-values:${MATERIAL_VALUES_VERSION}"
-    implementation "com.amulyakhare:com.amulyakhare.textdrawable:${TEXTDRAWABLE_VERSION}"
+    api "com.google.android.gms:play-services-tasks:${PLAY_SERVICES_TASKS_VERSION}"
+    api "blue.aodev:material-values:${MATERIAL_VALUES_VERSION}"
+    api "com.amulyakhare:com.amulyakhare.textdrawable:${TEXTDRAWABLE_VERSION}"
 
     //test dependencies
     testImplementation "junit:junit:${JUNIT_VERSION}"
