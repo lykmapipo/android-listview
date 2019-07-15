@@ -18,7 +18,7 @@ add `android-listview` dependency into your project
 
 ```gradle
 dependencies {
-    compile 'com.github.lykmapipo:android-listview:v0.1.0'
+    implementation 'com.github.lykmapipo:android-listview:v0.1.0'
 }
 ```
 
@@ -26,9 +26,7 @@ dependencies {
 
 In activity(or other ui components)
 
-```java
-
-```
+> WIP
 
 
 ## Test
