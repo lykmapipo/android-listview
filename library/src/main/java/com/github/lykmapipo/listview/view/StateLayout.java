@@ -12,7 +12,7 @@ import java.lang.annotation.RetentionPolicy;
 
 /**
  * A subclass of FrameLayout that can display different state of view i.e contentView, emptyView,
- * errorView and loadingView. State view can be set by {@link #setContentView(View)} or {@link #setLoadingViewResId(int)},
+ * errorView and loadingView. Content view can be set by {@link #setContentView(View)} or {@link #setContentViewResId(int)},
  * and state can be switched by call {@link #setState(int)}.
  *
  * @author lally elias <lallyelias87@gmail.com>
@@ -20,6 +20,8 @@ import java.lang.annotation.RetentionPolicy;
  * @since 0.1.0
  */
 public class StateLayout extends FrameLayout {
+    // TODO add code javadocs
+    // TODO add default emptyView, errorView and loadingView
 
     public static final int VIEW_CONTENT = 0x00000000;
     public static final int VIEW_EMPTY = 0x00000001;
