@@ -7,6 +7,11 @@ import androidx.annotation.NonNull;
 import java.util.HashMap;
 import java.util.Map;
 
+// https://github.com/mongodb/mongo-java-driver/blob/master/driver-core/src/main/com/mongodb/client/model/Filters.java
+// https://github.com/mongodb/mongo-java-driver/blob/master/driver-core/src/main/com/mongodb/client/model/Sorts.java
+// https://docs.mongodb.com/manual/tutorial/query-documents/
+// https://github.com/RutledgePaulV/q-builders
+
 /**
  * Data query builder
  *
