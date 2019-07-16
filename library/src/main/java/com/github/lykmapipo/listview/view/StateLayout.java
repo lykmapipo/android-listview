@@ -1,11 +1,15 @@
 package com.github.lykmapipo.listview.view;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 
 import androidx.annotation.IntDef;
+
+import com.github.lykmapipo.listview.R;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -14,6 +18,22 @@ import java.lang.annotation.RetentionPolicy;
  * A subclass of FrameLayout that can display different state of view i.e contentView, emptyView,
  * errorView and loadingView. Content view can be set by {@link #setContentView(View)} or {@link #setContentViewResId(int)},
  * and state can be switched by call {@link #setState(int)}.
+ *
+ * <pre>
+ *     <code>
+ *      <com.github.lykmapipo.listview.view.StateLayout
+ *          xmlns:android="http://schemas.android.com/apk/res/android"
+ *          xmlns:app="http://schemas.android.com/apk/res-auto"
+ *          xmlns:tools="http://schemas.android.com/tools"
+ *          android:id="@+id/slList"
+ *          android:layout_width="match_parent"
+ *          android:layout_height="match_parent"
+ *          android:orientation="vertical"
+ *          app:layout_empty="@layout/state_empty"
+ *          app:layout_error="@layout/state_empty"
+ *          app:layout_loading="@layout/state_loading" />
+ *     </code>
+ * </pre>
  *
  * @author lally elias <lallyelias87@gmail.com>
  * @since 0.1.0
@@ -33,6 +53,13 @@ public class StateLayout extends FrameLayout {
     private View mErrorView;
     private View mLoadingView;
 
+    private int mContentResId;
+    private int mEmptyResId = R.layout.state_empty;
+    private int mErrorResId = R.layout.state_error;
+    private int mLoadingResId = R.layout.state_loading;
+
+    private LayoutInflater mInflater;
+
     private int defaultViewState = VIEW_LOADING;
 
     public StateLayout(Context context) {
@@ -45,18 +72,35 @@ public class StateLayout extends FrameLayout {
 
     public StateLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init(context, attrs);
     }
 
-    /**
-     * <p>Set content view.</p>
-     *
-     * @param contentView The content view to add
-     * @return This StateLayout object to allow for chaining of calls to set methods
-     */
-    public StateLayout setContentView(View contentView) {
-        this.mContentView = contentView;
-        initStateView(mContentView);
-        return this;
+    private void init(Context context, AttributeSet attrs) {
+        TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.StateLayout);
+        // obtain layouts
+        try {
+            mEmptyResId = ta.getResourceId(R.styleable.StateLayout_layout_empty, mEmptyResId);
+            mErrorResId = ta.getResourceId(R.styleable.StateLayout_layout_error, mErrorResId);
+            mLoadingResId = ta.getResourceId(R.styleable.StateLayout_layout_loading, mLoadingResId);
+            mInflater = LayoutInflater.from(context);
+        }
+        // recycle TypedArray
+        finally {
+            ta.recycle();
+        }
+    }
+
+    @Override
+    protected void onFinishInflate() {
+        super.onFinishInflate();
+
+        // ensure views
+        if (getChildCount() == 1) {
+            mContentView = getChildAt(0);
+        }
+        setEmptyView(getEmptyView());
+        setErrorView(getErrorView());
+        setLoadingView(getLoadingView());
     }
 
     /**
@@ -66,19 +110,8 @@ public class StateLayout extends FrameLayout {
      * @return This StateLayout object to allow for chaining of calls to set methods
      */
     public StateLayout setContentViewResId(int viewResId) {
+        mContentResId = viewResId;
         mContentView = findViewById(viewResId);
-        return this;
-    }
-
-    /**
-     * <p>Set empty view.</p>
-     *
-     * @param emptyView The empty view to add
-     * @return This StateLayout object to allow for chaining of calls to set methods
-     */
-    public StateLayout setEmptyView(View emptyView) {
-        this.mEmptyView = emptyView;
-        initStateView(mEmptyView);
         return this;
     }
 
@@ -89,19 +122,8 @@ public class StateLayout extends FrameLayout {
      * @return This StateLayout object to allow for chaining of calls to set methods
      */
     public StateLayout setEmptyViewResId(int viewResId) {
+        mEmptyResId = viewResId;
         mEmptyView = findViewById(viewResId);
-        return this;
-    }
-
-    /**
-     * <p>set error view.</p>
-     *
-     * @param errorView the error view to add
-     * @return This StateLayout object to allow for chaining of calls to set methods
-     */
-    public StateLayout setErrorView(View errorView) {
-        this.mErrorView = errorView;
-        initStateView(mErrorView);
         return this;
     }
 
@@ -112,19 +134,8 @@ public class StateLayout extends FrameLayout {
      * @return This StateLayout object to allow for chaining of calls to set methods
      */
     public StateLayout setErrorViewResId(int viewResId) {
+        mErrorResId = viewResId;
         mErrorView = findViewById(viewResId);
-        return this;
-    }
-
-    /**
-     * <p>Set loading view.</p>
-     *
-     * @param loadingView the loading view to add
-     * @return This StateLayout object to allow for chaining of calls to set methods
-     */
-    public StateLayout setLoadingView(View loadingView) {
-        this.mLoadingView = loadingView;
-        initStateView(mLoadingView);
         return this;
     }
 
@@ -135,6 +146,7 @@ public class StateLayout extends FrameLayout {
      * @return This StateLayout object to allow for chaining of calls to set methods
      */
     public StateLayout setLoadingViewResId(int viewResId) {
+        mLoadingResId = viewResId;
         mLoadingView = findViewById(viewResId);
         return this;
     }
@@ -235,9 +247,103 @@ public class StateLayout extends FrameLayout {
         }
     }
 
+    /**
+     * <p>Get empty view.</p>
+     *
+     * @return
+     */
+    public View getEmptyView() {
+        if (null == mEmptyView && mEmptyResId > -1) {
+            mEmptyView = mInflater.inflate(mEmptyResId, this, false);
+        }
+        return mEmptyView;
+    }
+
+    /**
+     * <p>Set empty view.</p>
+     *
+     * @param emptyView The empty view to add
+     * @return This StateLayout object to allow for chaining of calls to set methods
+     */
+    public StateLayout setEmptyView(View emptyView) {
+//        removeView(emptyView);
+        mEmptyView = emptyView;
+        initStateView(mEmptyView);
+        return this;
+    }
+
+    /**
+     * <p>Get error view</p>
+     *
+     * @return
+     */
+    public View getErrorView() {
+        if (null == mErrorView && mErrorResId > -1) {
+            mErrorView = mInflater.inflate(mErrorResId, this, false);
+        }
+        return mErrorView;
+    }
+
+    /**
+     * <p>Set error view.</p>
+     *
+     * @param errorView the error view to add
+     * @return This StateLayout object to allow for chaining of calls to set methods
+     */
+    public StateLayout setErrorView(View errorView) {
+//        removeView(mErrorView);
+        mErrorView = errorView;
+        initStateView(mErrorView);
+        return this;
+    }
+
+    /**
+     * <p>Get loading view</p>
+     *
+     * @return
+     */
+    public View getLoadingView() {
+        if (null == mLoadingView && mLoadingResId > -1) {
+            mLoadingView = mInflater.inflate(mLoadingResId, this, false);
+        }
+        return mLoadingView;
+    }
+
+    /**
+     * <p>Set loading view.</p>
+     *
+     * @param loadingView the loading view to add
+     * @return This StateLayout object to allow for chaining of calls to set methods
+     */
+    public StateLayout setLoadingView(View loadingView) {
+//        removeView(mLoadingView);
+        mLoadingView = loadingView;
+        initStateView(mLoadingView);
+        return this;
+    }
+
+    public View getContentView() {
+        if (null == mContentView && mContentResId > -1) {
+            mContentView = mInflater.inflate(mContentResId, this, false);
+        }
+        return mContentView;
+    }
+
+    /**
+     * <p>Set content view.</p>
+     *
+     * @param contentView The content view to add
+     * @return This StateLayout object to allow for chaining of calls to set methods
+     */
+    public StateLayout setContentView(View contentView) {
+//        removeView(mContentView);
+        mContentView = contentView;
+        initStateView(mContentView);
+        return this;
+    }
+
     @IntDef({VIEW_CONTENT, VIEW_EMPTY, VIEW_ERROR, VIEW_LOADING})
     @Retention(RetentionPolicy.SOURCE)
     public @interface ViewState {
     }
-
 }

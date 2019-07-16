@@ -1,5 +1,6 @@
 package com.github.lykmapipo.listview.sample;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
@@ -8,6 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.github.javafaker.Faker;
+import com.github.lykmapipo.listview.view.StateLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +23,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // show state layout
+        Button btnStateLayout = findViewById(R.id.btnStateLayout);
+        btnStateLayout.setOnClickListener(v -> {
+            startActivity(new Intent(this, StateLayoutActivity.class));
+        });
 
         // show dialog value picker
         Button btnDialogPicker = findViewById(R.id.btnSimpleList);

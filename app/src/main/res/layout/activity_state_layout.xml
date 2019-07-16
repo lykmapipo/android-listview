@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.github.lykmapipo.listview.view.StateLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/slList"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layout_empty="@layout/state_empty"
+    app:layout_error="@layout/state_error"
+    app:layout_loading="@layout/state_loading"
+    tools:context=".StateLayoutActivity"
+    tools:padding="@dimen/material_baseline_grid_2x">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/text_empty_state_message" />
+
+</com.github.lykmapipo.listview.view.StateLayout>
