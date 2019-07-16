@@ -21,6 +21,7 @@ import java.lang.annotation.RetentionPolicy;
 public class StateLayout extends FrameLayout {
     // TODO add code javadocs
     // TODO add default emptyView, errorView and loadingView
+    // TODO support emptyView, errorView and loadingView as view attrs
 
     public static final int VIEW_CONTENT = 0x00000000;
     public static final int VIEW_EMPTY = 0x00000001;
