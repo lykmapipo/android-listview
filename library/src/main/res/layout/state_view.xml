@@ -9,9 +9,9 @@
     android:orientation="vertical">
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/ivStateViewIcon"
-        android:layout_width="@dimen/material_baseline_grid_16x"
-        android:layout_height="@dimen/material_baseline_grid_16x"
+        android:id="@+id/ivStateViewImage"
+        android:layout_width="@dimen/state_view_image_width"
+        android:layout_height="@dimen/state_view_image_height"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="@dimen/material_baseline_grid_2x"
         android:scaleType="centerCrop"
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="@dimen/material_baseline_grid_1x"
-        android:text="@string/text_empty_state_title" />
+        android:text="@string/state_view_title" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvStateViewMessage"
@@ -33,14 +33,14 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="@dimen/material_baseline_grid_4x"
-        android:text="@string/text_empty_state_message" />
+        android:text="@string/state_view_message" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnStateViewRetry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="@string/text_empty_state_retry"
+        android:text="@string/state_view_action_text"
         android:visibility="gone"
         tools:visibility="visible" />
 </LinearLayout>

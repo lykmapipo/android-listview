@@ -19,7 +19,7 @@
     <string name="text_error_state_retry">Retry</string>
 
     <!--state view-->
-    <string name="text_state_view_title">Empty State</string>
-    <string name="text_state_view_message">Add title, message and image and they will show up here.</string>
-    <string name="text_state_view_action_text">Retry</string>
+    <string name="state_view_title">No Item Found</string>
+    <string name="state_view_message">Save items and they will show up here.</string>
+    <string name="state_view_action_text">Retry</string>
 </resources>

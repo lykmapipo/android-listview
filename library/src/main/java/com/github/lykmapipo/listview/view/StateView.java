@@ -16,12 +16,12 @@ import com.github.lykmapipo.listview.R;
  */
 public class StateView extends LinearLayout {
 
-    private int titleResId = R.string.text_state_view_title;
-    private int messageResId = R.string.text_state_view_message;
+    private int titleResId = R.string.state_view_title;
+    private int messageResId = R.string.state_view_message;
     private int imageSrcResId = R.drawable.ic_empty;
-    private int imageWidthResId = R.dimen.layout_width_state_view_image_width;
-    private int imageHeightResId = R.dimen.layout_width_state_view_image_height;
-    private int actionTextResId = R.string.text_state_view_action_text;
+    private int imageWidthResId = R.dimen.state_view_image_width;
+    private int imageHeightResId = R.dimen.state_view_image_height;
+    private int actionTextResId = R.string.state_view_action_text;
 
     public StateView(Context context) {
         this(context, null);

@@ -3,7 +3,7 @@
     <dimen name="material_list_text_gutter">@dimen/material_baseline_grid_typography</dimen>
 
     <!--state view-->
-    <dimen name="layout_width_state_view_image_width">@dimen/material_baseline_grid_16x</dimen>
-    <dimen name="layout_width_state_view_image_height">@dimen/material_baseline_grid_16x</dimen>
+    <dimen name="state_view_image_width">@dimen/material_baseline_grid_16x</dimen>
+    <dimen name="state_view_image_height">@dimen/material_baseline_grid_16x</dimen>
 
 </resources>
