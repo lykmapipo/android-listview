@@ -9,11 +9,11 @@
 
     <!--StateView-->
     <declare-styleable name="StateView">
-        <attr name="title" format="string" />
-        <attr name="message" format="string" />
-        <attr name="image_src" format="integer" />
-        <attr name="image_width" format="dimension" />
-        <attr name="image_height" format="dimension" />
-        <attr name="action_text" format="string" />
+        <attr name="title" format="reference" />
+        <attr name="message" format="reference" />
+        <attr name="image_src" format="reference" />
+        <attr name="image_width" format="reference" />
+        <attr name="image_height" format="reference" />
+        <attr name="action_text" format="reference" />
     </declare-styleable>
 </resources>

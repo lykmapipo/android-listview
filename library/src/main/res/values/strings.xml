@@ -1,15 +1,25 @@
 <resources>
+    <!--misc-->
     <string name="app_name">Library</string>
     <string name="tools_item_value_name">Value Name</string>
     <string name="tools_item_value_description">Value Description</string>
-    <string name="hint_list_values_search">Search...</string>
+    <string name="hint_list_values_search">Search&#8230;</string>
 
-    <string name="text_loading_state_message">Loading...</string>
+    <!--state loading-->
+    <string name="text_loading_state_message">Loading&#8230;</string>
+
+    <!--state empty-->
     <string name="text_empty_state_title">No Item Found</string>
     <string name="text_empty_state_message">Save items and they will show up here.</string>
     <string name="text_empty_state_retry">Retry</string>
 
+    <!--state error-->
     <string name="text_error_state_title">Action Failed</string>
     <string name="text_error_state_message">Please retry to resolve.</string>
     <string name="text_error_state_retry">Retry</string>
+
+    <!--state view-->
+    <string name="text_state_view_title">Empty State</string>
+    <string name="text_state_view_message">Add title, message and image and they will show up here.</string>
+    <string name="text_state_view_action_text">Retry</string>
 </resources>
