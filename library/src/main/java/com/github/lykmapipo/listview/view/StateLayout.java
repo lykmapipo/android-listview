@@ -18,28 +18,42 @@ import java.lang.annotation.RetentionPolicy;
  * A subclass of FrameLayout that can display different state of view i.e contentView, emptyView,
  * errorView and loadingView. Content view can be set by {@link #setContentView(View)} or {@link #setContentViewResId(int)},
  * and state can be switched by call {@link #setState(int)}.
+ * <p>
+ * <p/>The following code sample shows a typical use, with an XML layout:
  *
  * <pre>
- *     <code>
- *      <com.github.lykmapipo.listview.view.StateLayout
- *          xmlns:android="http://schemas.android.com/apk/res/android"
- *          xmlns:app="http://schemas.android.com/apk/res-auto"
- *          xmlns:tools="http://schemas.android.com/tools"
- *          android:id="@+id/slList"
- *          android:layout_width="match_parent"
- *          android:layout_height="match_parent"
- *          android:orientation="vertical"
- *          app:layout_empty="@layout/state_empty"
- *          app:layout_error="@layout/state_empty"
- *          app:layout_loading="@layout/state_loading" />
- *     </code>
+ *  &lt;com.github.lykmapipo.listview.view.StateLayout
+ *      xmlns:android="http://schemas.android.com/apk/res/android"
+ *      xmlns:app="http://schemas.android.com/apk/res-auto"
+ *      xmlns:tools="http://schemas.android.com/tools"
+ *      android:id="@+id/slList"
+ *      android:layout_width="match_parent"
+ *      android:layout_height="match_parent"
+ *      android:orientation="vertical"
+ *      app:layout_empty="@layout/state_empty"
+ *      app:layout_error="@layout/state_empty"
+ *      app:layout_loading="@layout/state_loading" /&gt;
+ * </pre>
+ *
+ * <p>This code sample demonstrates how to modify the contents of {@link StateLayout} defined in
+ * the previous XML layout:
+ *
+ * <pre>
+ * public class MainActivity extends AppCompatActivity {
+ *
+ *    protected void onCreate(Bundle savedInstanceState) {
+ *         super.onCreate(savedInstanceState);
+ *         setContentView(R.layout.activity_main);
+ *         final StateLayout slList = findViewById(R.id.slList);
+ *         slList.setState(StateLayout.VIEW_ERROR)
+ *     }
+ * }
  * </pre>
  *
  * @author lally elias <lallyelias87@gmail.com>
  * @since 0.1.0
  */
 public class StateLayout extends FrameLayout {
-    // TODO add code javadocs
     // TODO add default emptyView, errorView and loadingView
     // TODO support emptyView, errorView and loadingView as view attrs
 
