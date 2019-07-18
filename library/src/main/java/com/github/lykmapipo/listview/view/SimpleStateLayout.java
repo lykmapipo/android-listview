@@ -5,6 +5,13 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 
+import androidx.annotation.DrawableRes;
+import androidx.annotation.StringRes;
+import androidx.appcompat.widget.AppCompatImageView;
+import androidx.appcompat.widget.AppCompatTextView;
+
+import com.google.android.material.button.MaterialButton;
+
 /**
  * A subclass of {@link FrameLayout} that can display different state of view i.e contentView, emptyView,
  * errorView and loadingView.
@@ -101,6 +108,59 @@ public class SimpleStateLayout extends FrameLayout {
      */
     public void showState() {
         showStateView();
+    }
+
+    /**
+     * Show state view
+     *
+     * @param titleResId          resource id for title
+     * @param messageResId        resource id for message
+     * @param actionResId         resource id for action
+     * @param actionClickListener callback to invoke when action clicked
+     * @since 0.1.0
+     */
+    public void showState(
+            @StringRes int titleResId, @StringRes int messageResId,
+            @StringRes int actionResId, @DrawableRes int imageResId,
+            OnClickListener actionClickListener
+    ) {
+        // reference state view
+        AppCompatTextView title = stateView.getTitle();
+        title.setText(titleResId);
+
+        AppCompatTextView message = stateView.getMessage();
+        message.setText(messageResId);
+
+        AppCompatImageView image = stateView.getImage();
+        image.setImageResource(imageResId);
+
+        MaterialButton action = stateView.getAction();
+        action.setText(actionResId);
+
+        // show action
+        if (actionClickListener != null) {
+            action.setVisibility(VISIBLE);
+            action.setOnClickListener(actionClickListener);
+        }
+        // hide action
+        else {
+            action.setVisibility(GONE);
+        }
+    }
+
+    /**
+     * Show state view
+     *
+     * @param titleResId   resource id for title
+     * @param messageResId resource id for message
+     * @param actionResId  resource id for action
+     * @since 0.1.0
+     */
+    public void showState(
+            @StringRes int titleResId, @StringRes int messageResId,
+            @StringRes int actionResId, @DrawableRes int imageResId
+    ) {
+        showState(titleResId, messageResId, actionResId, imageResId, null);
     }
 
     private void showLoadingView() {
