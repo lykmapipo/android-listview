@@ -14,6 +14,7 @@
         android:layout_height="@dimen/state_view_image_height"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="@dimen/material_baseline_grid_2x"
+        android:contentDescription="@string/state_view_image_description"
         android:scaleType="centerCrop"
         android:src="@drawable/ic_empty" />
 
@@ -36,7 +37,7 @@
         android:text="@string/state_view_message" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnStateViewRetry"
+        android:id="@+id/btnStateViewAction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"

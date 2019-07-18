@@ -12,6 +12,7 @@
         <attr name="title" format="reference" />
         <attr name="message" format="reference" />
         <attr name="image_src" format="reference" />
+        <attr name="image_description" format="reference" />
         <attr name="image_width" format="reference" />
         <attr name="image_height" format="reference" />
         <attr name="action_text" format="reference" />

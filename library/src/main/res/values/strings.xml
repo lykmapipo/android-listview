@@ -21,5 +21,6 @@
     <!--state view-->
     <string name="state_view_title">No Item Found</string>
     <string name="state_view_message">Save items and they will show up here.</string>
+    <string name="state_view_image_description">Save items and they will show up here.</string>
     <string name="state_view_action_text">Retry</string>
 </resources>
