@@ -1,6 +1,7 @@
 package com.github.lykmapipo.listview.sample;
 
 import android.os.Bundle;
+import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,6 +18,7 @@ public class StateLayoutActivity extends AppCompatActivity {
 
         SimpleStateLayout sl = findViewById(R.id.sl);
 
-//        new Handler().postDelayed(() -> sl.setState(StateLayout.VIEW_ERROR), 1000);
+        new Handler().postDelayed(sl::showContent, 1000);
+        new Handler().postDelayed(sl::showState, 2000);
     }
 }

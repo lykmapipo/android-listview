@@ -85,9 +85,39 @@ public class SimpleStateLayout extends FrameLayout {
         showLoadingView();
     }
 
+    /**
+     * Show content view
+     *
+     * @since 0.1.0
+     */
+    public void showContent() {
+        showContentView();
+    }
+
+    /**
+     * Show latest state view
+     *
+     * @since 0.1.0
+     */
+    public void showState() {
+        showStateView();
+    }
+
     private void showLoadingView() {
         showView(loadingView);
         hideView(stateView);
+        hideView(contentView);
+    }
+
+    private void showContentView() {
+        showView(contentView);
+        hideView(loadingView);
+        hideView(stateView);
+    }
+
+    private void showStateView() {
+        showView(stateView);
+        hideView(loadingView);
         hideView(contentView);
     }
 
