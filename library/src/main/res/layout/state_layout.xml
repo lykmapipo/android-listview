@@ -9,11 +9,13 @@
 
     <!--state view-->
     <com.github.lykmapipo.listview.view.StateView
+        android:id="@+id/stateView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
     <!--loading view-->
     <com.github.lykmapipo.listview.view.LoadingView
+        android:id="@+id/loadingView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
