@@ -160,6 +160,54 @@ public class SimpleStateLayout extends FrameLayout {
     }
 
     /**
+     * Show quick error state
+     *
+     * @since 0.1.0
+     */
+    public void showError() {
+        showState(
+                R.string.text_error_state_title,
+                R.string.text_error_state_message,
+                R.string.text_error_state_action_text,
+                R.drawable.ic_error,
+                null
+        );
+    }
+
+    /**
+     * Show quick error state
+     *
+     * @since 0.1.0
+     */
+    public void showError(OnClickListener clickListener) {
+        showState(
+                R.string.text_error_state_title,
+                R.string.text_error_state_message,
+                R.string.text_error_state_action_text,
+                R.drawable.ic_error,
+                clickListener
+        );
+    }
+
+    /**
+     * Show quick error state
+     *
+     * @since 0.1.0
+     */
+    public void showError(
+            @StringRes int titleResId, @StringRes int messageResId,
+            OnClickListener clickListener
+    ) {
+        showState(
+                titleResId,
+                messageResId,
+                R.string.text_error_state_action_text,
+                R.drawable.ic_error,
+                clickListener
+        );
+    }
+
+    /**
      * Show state view
      *
      * @param titleResId          resource id for title
