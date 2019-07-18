@@ -2,7 +2,6 @@ package com.github.lykmapipo.listview.sample;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -24,25 +23,26 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // show state view
-        Button btnStateView = findViewById(R.id.btnStateView);
-        btnStateView.setOnClickListener(v -> {
+        findViewById(R.id.btnStateView).setOnClickListener(v -> {
             startActivity(new Intent(this, StateViewActivity.class));
         });
 
+        // show loading view
+        findViewById(R.id.btnLoadingView).setOnClickListener(v -> {
+            startActivity(new Intent(this, LoadingViewActivity.class));
+        });
+
         // show state layout
-        Button btnStateLayout = findViewById(R.id.btnStateLayout);
-        btnStateLayout.setOnClickListener(v -> {
+        findViewById(R.id.btnStateLayout).setOnClickListener(v -> {
             startActivity(new Intent(this, StateLayoutActivity.class));
         });
 
         // show dialog value picker
-        Button btnDialogPicker = findViewById(R.id.btnSimpleList);
-        btnDialogPicker.setOnClickListener(v -> {
+        findViewById(R.id.btnSimpleList).setOnClickListener(v -> {
         });
 
         // show bottom sheet value picker
-        Button btnBottomSheetPicker = findViewById(R.id.btnPagedList);
-        btnBottomSheetPicker.setOnClickListener(v -> {
+        findViewById(R.id.btnPagedList).setOnClickListener(v -> {
         });
     }
 

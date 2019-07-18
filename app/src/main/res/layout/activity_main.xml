@@ -47,5 +47,13 @@
             android:layout_marginTop="280dp"
             android:text="Paged List" />
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnLoadingView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="340dp"
+            android:text="Loading View" />
+
     </RelativeLayout>
 </androidx.core.widget.NestedScrollView>

@@ -19,6 +19,7 @@
         </activity>
         <activity android:name=".StateLayoutActivity" />
         <activity android:name=".StateViewActivity" />
+        <activity android:name=".LoadingViewActivity" />
     </application>
 
 </manifest>
