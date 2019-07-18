@@ -1,8 +1,17 @@
 <resources>
+    <!--StateLayout-->
     <declare-styleable name="StateLayout">
         <attr name="layout_empty" format="reference" />
         <attr name="layout_loading" format="reference" />
         <attr name="layout_error" format="reference" />
         <attr name="layout_content" format="reference" />
+    </declare-styleable>
+
+    <!--StateView-->
+    <declare-styleable name="StateView">
+        <attr name="title" format="string" />
+        <attr name="message" format="string" />
+        <attr name="drawable" format="integer" />
+        <attr name="action_text" format="string" />
     </declare-styleable>
 </resources>
