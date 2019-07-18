@@ -208,6 +208,54 @@ public class SimpleStateLayout extends FrameLayout {
     }
 
     /**
+     * Show quick offline state
+     *
+     * @since 0.1.0
+     */
+    public void showOffline() {
+        showState(
+                R.string.text_offline_state_title,
+                R.string.text_offline_state_message,
+                R.string.text_offline_state_action_text,
+                R.drawable.ic_offline,
+                null
+        );
+    }
+
+    /**
+     * Show quick offline state
+     *
+     * @since 0.1.0
+     */
+    public void showOffline(OnClickListener clickListener) {
+        showState(
+                R.string.text_offline_state_title,
+                R.string.text_offline_state_message,
+                R.string.text_offline_state_action_text,
+                R.drawable.ic_offline,
+                clickListener
+        );
+    }
+
+    /**
+     * Show quick offline state
+     *
+     * @since 0.1.0
+     */
+    public void showOffline(
+            @StringRes int titleResId, @StringRes int messageResId,
+            OnClickListener clickListener
+    ) {
+        showState(
+                titleResId,
+                messageResId,
+                R.string.text_offline_state_action_text,
+                R.drawable.ic_offline,
+                clickListener
+        );
+    }
+
+    /**
      * Show state view
      *
      * @param titleResId          resource id for title

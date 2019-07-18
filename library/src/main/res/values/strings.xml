@@ -18,6 +18,11 @@
     <string name="text_error_state_message">Please retry to resolve.</string>
     <string name="text_error_state_action_text">Retry</string>
 
+    <!--state offline-->
+    <string name="text_offline_state_title">You\'re offline</string>
+    <string name="text_offline_state_message">Your network is unavailable. Check your data or WiFi connection.</string>
+    <string name="text_offline_state_action_text">Retry</string>
+
     <!--state view-->
     <string name="state_view_title">No Item Found</string>
     <string name="state_view_message">Save items and they will show up here.</string>
