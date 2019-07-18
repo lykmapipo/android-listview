@@ -9,10 +9,10 @@
 
     <!--StateView-->
     <declare-styleable name="StateView">
-        <attr name="title" format="reference" />
-        <attr name="message" format="reference" />
-        <attr name="image_src" format="reference" />
-        <attr name="image_description" format="reference" />
-        <attr name="action_text" format="reference" />
+        <attr name="state_title" format="reference" />
+        <attr name="state_message" format="reference" />
+        <attr name="state_image_src" format="reference" />
+        <attr name="state_image_description" format="reference" />
+        <attr name="state_action_text" format="reference" />
     </declare-styleable>
 </resources>

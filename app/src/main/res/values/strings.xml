@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Value Picker</string>
+    <string name="title_no_space">Insufficient Storage Space</string>
+    <string name="message_no_space">To free space, cleanup is required</string>
+    <string name="action_no_space">Cleanup</string>
 </resources>

@@ -9,7 +9,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.github.javafaker.Faker;
-import com.github.lykmapipo.listview.view.StateLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +22,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // show state view
+        Button btnStateView = findViewById(R.id.btnStateView);
+        btnStateView.setOnClickListener(v -> {
+            startActivity(new Intent(this, StateViewActivity.class));
+        });
 
         // show state layout
         Button btnStateLayout = findViewById(R.id.btnStateLayout);

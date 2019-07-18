@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import androidx.appcompat.widget.AppCompatImageView;
@@ -12,8 +13,11 @@ import androidx.appcompat.widget.AppCompatTextView;
 import com.github.lykmapipo.listview.R;
 import com.google.android.material.button.MaterialButton;
 
+//ref: https://trickyandroid.com/protip-inflating-layout-for-your-custom-view/
+//ref: https://medium.com/@douglas.iacovelli/the-beauty-of-custom-views-and-how-to-do-it-79c7d78e2088
+
 /**
- * A StateView is a derivative of {@link android.widget.LinearLayout} used to displays
+ * A StateView is a derivative of {@link FrameLayout} used to displays
  * action result or ui state with title, message and action to user.
  *
  * @author lally elias <lallyelias87@gmail.com>
@@ -48,12 +52,15 @@ public class StateView extends LinearLayout {
     private void init(Context context, AttributeSet attrs) {
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.StateView);
         try {
+            // inflate layout
+            inflate(context, R.layout.state_view, this);
+
             // obtain attributes
-            titleResId = ta.getResourceId(R.styleable.StateView_title, titleResId);
-            messageResId = ta.getResourceId(R.styleable.StateView_message, messageResId);
-            imageSrcResId = ta.getResourceId(R.styleable.StateView_image_src, imageSrcResId);
-            imageDescriptionResId = ta.getResourceId(R.styleable.StateView_image_description, imageDescriptionResId);
-            actionTextResId = ta.getResourceId(R.styleable.StateView_action_text, actionTextResId);
+            titleResId = ta.getResourceId(R.styleable.StateView_state_title, titleResId);
+            messageResId = ta.getResourceId(R.styleable.StateView_state_message, messageResId);
+            imageSrcResId = ta.getResourceId(R.styleable.StateView_state_image_src, imageSrcResId);
+            imageDescriptionResId = ta.getResourceId(R.styleable.StateView_state_image_description, imageDescriptionResId);
+            actionTextResId = ta.getResourceId(R.styleable.StateView_state_action_text, actionTextResId);
 
             // reference views
             tvStateViewTitle = findViewById(R.id.tvStateViewTitle);
@@ -65,9 +72,11 @@ public class StateView extends LinearLayout {
             tvStateViewTitle.setText(titleResId);
             tvStateViewMessage.setText(messageResId);
 
-            Resources resources = context.getResources();
+            Resources resources = getContext().getResources();
             String description = resources.getString(imageDescriptionResId);
             ivStateViewImage.setContentDescription(description);
+            ivStateViewImage.setBackgroundResource(imageSrcResId);
+
             btnStateViewAction.setText(actionTextResId);
         }
         // recycle TypedArray
