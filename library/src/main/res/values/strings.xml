@@ -20,7 +20,7 @@
 
     <!--state offline-->
     <string name="text_offline_state_title">You\'re offline</string>
-    <string name="text_offline_state_message">Your network is unavailable. Check your data or WiFi connection.</string>
+    <string name="text_offline_state_message">Check your data or WiFi connection and retry.</string>
     <string name="text_offline_state_action_text">Retry</string>
 
     <!--state view-->

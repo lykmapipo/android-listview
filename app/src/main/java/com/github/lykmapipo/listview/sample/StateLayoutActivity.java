@@ -6,7 +6,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.github.lykmapipo.listview.view.SimpleStateLayout;
+import com.github.lykmapipo.listview.view.StateLayout;
 
 
 public class StateLayoutActivity extends AppCompatActivity {
@@ -17,13 +17,17 @@ public class StateLayoutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_state_layout);
 
-        SimpleStateLayout sl = findViewById(R.id.sl);
+        StateLayout sl = findViewById(R.id.sl);
 
         new Handler().postDelayed(() -> {
             sl.showEmpty(empty -> {
                 Toast.makeText(this, "Empty Retry Clicked", Toast.LENGTH_SHORT).show();
                 sl.showError(error -> {
                     Toast.makeText(this, "Error Retry Clicked", Toast.LENGTH_SHORT).show();
+                    sl.showOffline(offline -> {
+                        Toast.makeText(this, "Offline Retry Clicked", Toast.LENGTH_SHORT).show();
+                        sl.showContent();
+                    });
                 });
             });
         }, 1000);
