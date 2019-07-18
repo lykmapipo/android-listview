@@ -117,7 +117,7 @@ public class StateView extends LinearLayout {
             Resources resources = getContext().getResources();
             String description = resources.getString(imageDescriptionResId);
             ivStateViewImage.setContentDescription(description);
-            ivStateViewImage.setBackgroundResource(imageSrcResId);
+            ivStateViewImage.setImageResource(imageSrcResId);
 
             btnStateViewAction.setText(actionTextResId);
         }

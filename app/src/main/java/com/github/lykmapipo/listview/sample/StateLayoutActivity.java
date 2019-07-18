@@ -20,8 +20,11 @@ public class StateLayoutActivity extends AppCompatActivity {
         SimpleStateLayout sl = findViewById(R.id.sl);
 
         new Handler().postDelayed(() -> {
-            sl.showEmpty(view -> {
+            sl.showEmpty(empty -> {
                 Toast.makeText(this, "Empty Retry Clicked", Toast.LENGTH_SHORT).show();
+                sl.showError(error -> {
+                    Toast.makeText(this, "Error Retry Clicked", Toast.LENGTH_SHORT).show();
+                });
             });
         }, 1000);
     }
