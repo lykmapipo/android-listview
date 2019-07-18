@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.github.lykmapipo.listview.view.StateView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/sv"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:state_title="@string/title_no_space"
-    app:state_message="@string/message_no_space"
     app:state_action_text="@string/action_no_space"
+    app:state_message="@string/message_no_space"
+    app:state_title="@string/title_no_space"
     tools:context=".StateViewActivity"
     tools:padding="@dimen/material_baseline_grid_2x" />

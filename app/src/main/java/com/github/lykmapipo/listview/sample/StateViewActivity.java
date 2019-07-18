@@ -28,6 +28,9 @@ public class StateViewActivity extends AppCompatActivity {
 
         MaterialButton action = sv.getAction();
         action.setVisibility(View.VISIBLE);
+        action.setOnClickListener(view -> {
+            //...
+        });
 
     }
 }

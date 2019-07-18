@@ -14,11 +14,54 @@ import com.github.lykmapipo.listview.R;
 import com.google.android.material.button.MaterialButton;
 
 //ref: https://trickyandroid.com/protip-inflating-layout-for-your-custom-view/
+//ref: https://www.intertech.com/Blog/android-custom-view-tutorial-part-1-combining-existing-views/
 //ref: https://medium.com/@douglas.iacovelli/the-beauty-of-custom-views-and-how-to-do-it-79c7d78e2088
 
 /**
  * A StateView is a derivative of {@link FrameLayout} used to displays
  * action result or ui state with title, message and action to user.
+ *
+ * <p>
+ * <p/>The following code sample shows a typical use, with an XML layout:
+ *
+ * <pre>
+ *  &lt;com.github.lykmapipo.listview.view.StateView xmlns:android="http://schemas.android.com/apk/res/android"
+ *     xmlns:app="http://schemas.android.com/apk/res-auto"
+ *     xmlns:tools="http://schemas.android.com/tools"
+ *     android:id="@+id/sv"
+ *     android:layout_width="match_parent"
+ *     android:layout_height="match_parent"
+ *     app:state_action_text="@string/action_no_space"
+ *     app:state_message="@string/message_no_space"
+ *     app:state_title="@string/title_no_space"
+ *     tools:context=".StateViewActivity"
+ *     tools:padding="@dimen/material_baseline_grid_2x" /&gt;
+ * </pre>
+ *
+ * <p>This code sample demonstrates how to modify the contents of {@link StateView} defined in
+ * the previous XML layout:
+ *
+ * <pre>
+ * public class MainActivity extends AppCompatActivity {
+ *
+ *    protected void onCreate(Bundle savedInstanceState) {
+ *         super.onCreate(savedInstanceState);
+ *         setContentView(R.layout.activity_state_view);
+ *
+ *         StateView sv = findViewById(R.id.sv);
+ *
+ *         AppCompatTextView title = sv.getTitle();
+ *         AppCompatTextView message = sv.getMessage();
+ *         AppCompatImageView image = sv.getImage();
+ *
+ *         MaterialButton action = sv.getAction();
+ *         action.setVisibility(View.VISIBLE);
+ *         action.setOnClickListener(view -> {
+ *             //...
+ *         });
+ *     }
+ * }
+ * </pre>
  *
  * @author lally elias <lallyelias87@gmail.com>
  * @since 0.1.0
