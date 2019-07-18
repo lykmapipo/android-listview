@@ -5,8 +5,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 
-import com.github.lykmapipo.listview.R;
-
 /**
  * A subclass of {@link FrameLayout} that can display different state of view i.e contentView, emptyView,
  * errorView and loadingView.
@@ -36,12 +34,26 @@ public class SimpleStateLayout extends FrameLayout {
     }
 
     private void init(Context context, AttributeSet attrs) {
-        // inflate layout
-        inflate(context, R.layout.state_layout, this);
+        // initialize loading & state views
+        loadingView = new LoadingView(context, attrs);
+        stateView = new StateView(context, attrs);
+    }
 
-        // reference views
-        loadingView = findViewById(R.id.loadingView);
-        stateView = findViewById(R.id.stateView);
+    @Override
+    protected void onFinishInflate() {
+        super.onFinishInflate();
+
+        // ensure views
+        if (getChildCount() == 1) {
+            contentView = getChildAt(0);
+        }
+
+        // add other loading & state views
+        initStateView(stateView);
+        initStateView(loadingView);
+
+        // always start with loading view
+        showLoadingView();
     }
 
     /**
@@ -62,5 +74,38 @@ public class SimpleStateLayout extends FrameLayout {
      */
     public StateView getStateView() {
         return stateView;
+    }
+
+    /**
+     * Show loading view
+     *
+     * @since 0.1.0
+     */
+    public void showLoading() {
+        showLoadingView();
+    }
+
+    private void showLoadingView() {
+        showView(loadingView);
+        hideView(stateView);
+        hideView(contentView);
+    }
+
+    private void initStateView(View stateView) {
+        if (stateView != null) {
+            addView(stateView);
+        }
+    }
+
+    private void showView(View view) {
+        if (view != null) {
+            view.setVisibility(VISIBLE);
+        }
+    }
+
+    private void hideView(View view) {
+        if (view != null) {
+            view.setVisibility(GONE);
+        }
     }
 }
