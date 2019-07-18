@@ -13,7 +13,9 @@
         android:layout_height="match_parent" />
 
     <!--loading view-->
-    <include layout="@layout/state_loading" />
+    <com.github.lykmapipo.listview.view.LoadingView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
     <!--content view(should be added in instantiation)-->
 
