@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/llStateView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:colorBackground"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivStateViewIcon"
+        android:layout_width="@dimen/material_baseline_grid_16x"
+        android:layout_height="@dimen/material_baseline_grid_16x"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/material_baseline_grid_2x"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_empty" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvStateViewTitle"
+        style="@style/TextAppearance.MaterialComponents.Body1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/material_baseline_grid_1x"
+        android:text="@string/text_empty_state_title" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvStateViewMessage"
+        style="@style/TextAppearance.MaterialComponents.Caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/material_baseline_grid_4x"
+        android:text="@string/text_empty_state_message" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnStateViewRetry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/text_empty_state_retry"
+        android:visibility="gone"
+        tools:visibility="visible" />
+</LinearLayout>

@@ -38,14 +38,16 @@ public class StateView extends LinearLayout {
 
     private void init(Context context, AttributeSet attrs) {
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.StateView);
-        // obtain attributes
         try {
+            // obtain attributes
             titleResId = ta.getResourceId(R.styleable.StateView_title, titleResId);
             messageResId = ta.getResourceId(R.styleable.StateView_message, messageResId);
             imageSrcResId = ta.getResourceId(R.styleable.StateView_image_src, imageSrcResId);
             imageWidthResId = ta.getResourceId(R.styleable.StateView_image_width, imageWidthResId);
             imageHeightResId = ta.getResourceId(R.styleable.StateView_image_height, imageHeightResId);
             actionTextResId = ta.getResourceId(R.styleable.StateView_action_text, actionTextResId);
+
+            // reference views
         }
         // recycle TypedArray
         finally {
