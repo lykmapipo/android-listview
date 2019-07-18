@@ -1,6 +1,7 @@
 package com.github.lykmapipo.listview.view;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
@@ -23,14 +24,12 @@ public class StateView extends LinearLayout {
     private int titleResId = R.string.state_view_title;
     private int messageResId = R.string.state_view_message;
     private int imageSrcResId = R.drawable.ic_empty;
-    private int imageWidthResId = R.dimen.state_view_image_width;
-    private int imageHeightResId = R.dimen.state_view_image_height;
     private int imageDescriptionResId = R.string.state_view_image_description;
     private int actionTextResId = R.string.state_view_action_text;
 
-    private AppCompatImageView ivStateViewImage;
     private AppCompatTextView tvStateViewTitle;
     private AppCompatTextView tvStateViewMessage;
+    private AppCompatImageView ivStateViewImage;
     private MaterialButton btnStateViewAction;
 
     public StateView(Context context) {
@@ -53,16 +52,23 @@ public class StateView extends LinearLayout {
             titleResId = ta.getResourceId(R.styleable.StateView_title, titleResId);
             messageResId = ta.getResourceId(R.styleable.StateView_message, messageResId);
             imageSrcResId = ta.getResourceId(R.styleable.StateView_image_src, imageSrcResId);
-            imageWidthResId = ta.getResourceId(R.styleable.StateView_image_width, imageWidthResId);
-            imageHeightResId = ta.getResourceId(R.styleable.StateView_image_height, imageHeightResId);
             imageDescriptionResId = ta.getResourceId(R.styleable.StateView_image_description, imageDescriptionResId);
             actionTextResId = ta.getResourceId(R.styleable.StateView_action_text, actionTextResId);
 
             // reference views
-            ivStateViewImage = findViewById(R.id.ivStateViewImage);
             tvStateViewTitle = findViewById(R.id.tvStateViewTitle);
             tvStateViewMessage = findViewById(R.id.tvStateViewMessage);
+            ivStateViewImage = findViewById(R.id.ivStateViewImage);
             btnStateViewAction = findViewById(R.id.btnStateViewAction);
+
+            // apply values
+            tvStateViewTitle.setText(titleResId);
+            tvStateViewMessage.setText(messageResId);
+
+            Resources resources = context.getResources();
+            String description = resources.getString(imageDescriptionResId);
+            ivStateViewImage.setContentDescription(description);
+            btnStateViewAction.setText(actionTextResId);
         }
         // recycle TypedArray
         finally {
