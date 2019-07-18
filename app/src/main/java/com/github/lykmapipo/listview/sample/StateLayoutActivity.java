@@ -2,6 +2,7 @@ package com.github.lykmapipo.listview.sample;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,7 +19,10 @@ public class StateLayoutActivity extends AppCompatActivity {
 
         SimpleStateLayout sl = findViewById(R.id.sl);
 
-        new Handler().postDelayed(sl::showContent, 1000);
-        new Handler().postDelayed(sl::showState, 2000);
+        new Handler().postDelayed(() -> {
+            sl.showEmpty(view -> {
+                Toast.makeText(this, "Empty Retry Clicked", Toast.LENGTH_SHORT).show();
+            });
+        }, 1000);
     }
 }

@@ -11,12 +11,12 @@
     <!--state empty-->
     <string name="text_empty_state_title">No Item Found</string>
     <string name="text_empty_state_message">Save items and they will show up here.</string>
-    <string name="text_empty_state_retry">Retry</string>
+    <string name="text_empty_state_action_text">Retry</string>
 
     <!--state error-->
     <string name="text_error_state_title">Action Failed</string>
     <string name="text_error_state_message">Please retry to resolve.</string>
-    <string name="text_error_state_retry">Retry</string>
+    <string name="text_error_state_action_text">Retry</string>
 
     <!--state view-->
     <string name="state_view_title">No Item Found</string>

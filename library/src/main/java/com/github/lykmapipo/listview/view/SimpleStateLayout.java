@@ -10,6 +10,7 @@ import androidx.annotation.StringRes;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
 
+import com.github.lykmapipo.listview.R;
 import com.google.android.material.button.MaterialButton;
 
 /**
@@ -111,6 +112,54 @@ public class SimpleStateLayout extends FrameLayout {
     }
 
     /**
+     * Show quick empty state
+     *
+     * @since 0.1.0
+     */
+    public void showEmpty() {
+        showState(
+                R.string.text_empty_state_title,
+                R.string.text_empty_state_message,
+                R.string.text_empty_state_action_text,
+                R.drawable.ic_empty,
+                null
+        );
+    }
+
+    /**
+     * Show quick empty state
+     *
+     * @since 0.1.0
+     */
+    public void showEmpty(OnClickListener clickListener) {
+        showState(
+                R.string.text_empty_state_title,
+                R.string.text_empty_state_message,
+                R.string.text_empty_state_action_text,
+                R.drawable.ic_empty,
+                clickListener
+        );
+    }
+
+    /**
+     * Show quick empty state
+     *
+     * @since 0.1.0
+     */
+    public void showEmpty(
+            @StringRes int titleResId, @StringRes int messageResId,
+            OnClickListener clickListener
+    ) {
+        showState(
+                titleResId,
+                messageResId,
+                R.string.text_empty_state_action_text,
+                R.drawable.ic_empty,
+                clickListener
+        );
+    }
+
+    /**
      * Show state view
      *
      * @param titleResId          resource id for title
@@ -146,6 +195,9 @@ public class SimpleStateLayout extends FrameLayout {
         else {
             action.setVisibility(GONE);
         }
+
+        // show state view
+        showStateView();
     }
 
     /**
