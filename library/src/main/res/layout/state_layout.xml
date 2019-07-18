@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/flStateLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:padding="@dimen/material_baseline_grid_2x">
+
+    <!--state view-->
+    <com.github.lykmapipo.listview.view.StateView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!--loading view-->
+    <include layout="@layout/state_loading" />
+
+    <!--content view(should be added in instantiation)-->
+
+</FrameLayout>

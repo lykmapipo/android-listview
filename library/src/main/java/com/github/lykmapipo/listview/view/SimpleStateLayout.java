@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
+import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import androidx.appcompat.widget.AppCompatImageView;
@@ -12,60 +14,15 @@ import androidx.appcompat.widget.AppCompatTextView;
 import com.github.lykmapipo.listview.R;
 import com.google.android.material.button.MaterialButton;
 
-//ref: https://trickyandroid.com/protip-inflating-layout-for-your-custom-view/
-//ref: https://www.intertech.com/Blog/android-custom-view-tutorial-part-1-combining-existing-views/
-//ref: https://medium.com/@douglas.iacovelli/the-beauty-of-custom-views-and-how-to-do-it-79c7d78e2088
-
 /**
- * A StateView is a derivative of {@link LinearLayout} used to displays
- * action result or ui state with title, message and action to user.
- *
- * <p>
- * <p/>The following code sample shows a typical use, with an XML layout:
- *
- * <pre>
- *  &lt;com.github.lykmapipo.listview.view.StateView xmlns:android="http://schemas.android.com/apk/res/android"
- *     xmlns:app="http://schemas.android.com/apk/res-auto"
- *     xmlns:tools="http://schemas.android.com/tools"
- *     android:id="@+id/sv"
- *     android:layout_width="match_parent"
- *     android:layout_height="match_parent"
- *     app:state_action_text="@string/action_no_space"
- *     app:state_message="@string/message_no_space"
- *     app:state_title="@string/title_no_space"
- *     tools:context=".StateViewActivity"
- *     tools:padding="@dimen/material_baseline_grid_2x" /&gt;
- * </pre>
- *
- * <p>This code sample demonstrates how to modify the contents of {@link StateView} defined in
- * the previous XML layout:
- *
- * <pre>
- * public class MainActivity extends AppCompatActivity {
- *
- *    protected void onCreate(Bundle savedInstanceState) {
- *         super.onCreate(savedInstanceState);
- *         setContentView(R.layout.activity_state_view);
- *
- *         StateView sv = findViewById(R.id.sv);
- *
- *         AppCompatTextView title = sv.getTitle();
- *         AppCompatTextView message = sv.getMessage();
- *         AppCompatImageView image = sv.getImage();
- *
- *         MaterialButton action = sv.getAction();
- *         action.setVisibility(View.VISIBLE);
- *         action.setOnClickListener(view -> {
- *             //...
- *         });
- *     }
- * }
- * </pre>
+ * A subclass of FrameLayout that can display different state of view i.e contentView, emptyView,
+ * errorView and loadingView. Content view can be set by {@link #setContentView(View)} or {@link #setContentViewResId(int)},
+ * and state can be switched by call {@link #setState(int)}.
  *
  * @author lally elias <lallyelias87@gmail.com>
  * @since 0.1.0
  */
-public class StateView extends LinearLayout {
+public class SimpleStateLayout extends LinearLayout {
 
     private int titleResId = R.string.state_view_title;
     private int messageResId = R.string.state_view_message;
@@ -78,15 +35,15 @@ public class StateView extends LinearLayout {
     private AppCompatImageView ivStateViewImage;
     private MaterialButton btnStateViewAction;
 
-    public StateView(Context context) {
+    public SimpleStateLayout(Context context) {
         this(context, null);
     }
 
-    public StateView(Context context, AttributeSet attrs) {
+    public SimpleStateLayout(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public StateView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SimpleStateLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context, attrs);
     }
@@ -128,7 +85,7 @@ public class StateView extends LinearLayout {
     }
 
     /**
-     * Obtain reference to {@link StateView} image
+     * Obtain reference to {@link SimpleStateLayout} image
      *
      * @return {@link AppCompatImageView}
      * @since 0.1.0
@@ -138,7 +95,7 @@ public class StateView extends LinearLayout {
     }
 
     /**
-     * Obtain reference to {@link StateView} title
+     * Obtain reference to {@link SimpleStateLayout} title
      *
      * @return {@link AppCompatTextView}
      * @since 0.1.0
@@ -148,7 +105,7 @@ public class StateView extends LinearLayout {
     }
 
     /**
-     * Obtain reference to {@link StateView} message
+     * Obtain reference to {@link SimpleStateLayout} message
      *
      * @return {@link AppCompatTextView}
      * @since 0.1.0
@@ -158,7 +115,7 @@ public class StateView extends LinearLayout {
     }
 
     /**
-     * Obtain reference to {@link StateView} action
+     * Obtain reference to {@link SimpleStateLayout} action
      *
      * @return {@link MaterialButton}
      * @since 0.1.0
