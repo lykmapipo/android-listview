@@ -160,6 +160,43 @@ public class StateLayout extends FrameLayout {
     }
 
     /**
+     * Show quick empty state
+     *
+     * @since 0.1.0
+     */
+    public void showEmpty(
+            @StringRes int titleResId, @StringRes int messageResId,
+            @StringRes int actionResId, OnClickListener clickListener
+    ) {
+        showState(
+                titleResId,
+                messageResId,
+                actionResId,
+                R.drawable.ic_empty,
+                clickListener
+        );
+    }
+
+    /**
+     * Show quick empty state
+     *
+     * @since 0.1.0
+     */
+    public void showEmpty(
+            @StringRes int titleResId, @StringRes int messageResId,
+            @StringRes int actionResId, @DrawableRes int imageResId,
+            OnClickListener clickListener
+    ) {
+        showState(
+                titleResId,
+                messageResId,
+                actionResId,
+                imageResId,
+                clickListener
+        );
+    }
+
+    /**
      * Show quick error state
      *
      * @since 0.1.0
@@ -208,6 +245,44 @@ public class StateLayout extends FrameLayout {
     }
 
     /**
+     * Show quick error state
+     *
+     * @since 0.1.0
+     */
+    public void showError(
+            @StringRes int titleResId, @StringRes int messageResId,
+            @StringRes int actionResId, OnClickListener clickListener
+    ) {
+        showState(
+                titleResId,
+                messageResId,
+                actionResId,
+                R.drawable.ic_error,
+                clickListener
+        );
+    }
+
+    /**
+     * Show quick error state
+     *
+     * @since 0.1.0
+     */
+    public void showError(
+            @StringRes int titleResId, @StringRes int messageResId,
+            @StringRes int actionResId, @DrawableRes int imageResId,
+            OnClickListener clickListener
+    ) {
+        showState(
+                titleResId,
+                messageResId,
+                actionResId,
+                imageResId,
+                clickListener
+        );
+    }
+
+
+    /**
      * Show quick offline state
      *
      * @since 0.1.0
@@ -251,6 +326,43 @@ public class StateLayout extends FrameLayout {
                 messageResId,
                 R.string.text_offline_state_action_text,
                 R.drawable.ic_offline,
+                clickListener
+        );
+    }
+
+    /**
+     * Show quick offline state
+     *
+     * @since 0.1.0
+     */
+    public void showOffline(
+            @StringRes int titleResId, @StringRes int messageResId,
+            @StringRes int actionResId, OnClickListener clickListener
+    ) {
+        showState(
+                titleResId,
+                messageResId,
+                actionResId,
+                R.drawable.ic_offline,
+                clickListener
+        );
+    }
+
+    /**
+     * Show quick offline state
+     *
+     * @since 0.1.0
+     */
+    public void showOffline(
+            @StringRes int titleResId, @StringRes int messageResId,
+            @StringRes int actionResId, @DrawableRes int imageResId,
+            OnClickListener clickListener
+    ) {
+        showState(
+                titleResId,
+                messageResId,
+                actionResId,
+                imageResId,
                 clickListener
         );
     }
