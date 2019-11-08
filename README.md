@@ -22,13 +22,6 @@ dependencies {
 }
 ```
 
-## Usage
-
-In activity(or other ui components)
-
-> WIP
-
-
 ## Test
 ```sh
 ./gradlew test
