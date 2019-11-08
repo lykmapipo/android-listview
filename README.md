@@ -18,7 +18,7 @@ add `android-listview` dependency into your project
 
 ```gradle
 dependencies {
-    implementation 'com.github.lykmapipo:android-listview:v0.3.0'
+    implementation 'com.github.lykmapipo:android-listview:v0.4.0'
 }
 ```
 
