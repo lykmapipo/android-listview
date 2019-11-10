@@ -40,6 +40,7 @@ dependencies {
     api "com.google.android.gms:play-services-tasks:${PLAY_SERVICES_TASKS_VERSION}"
     api "blue.aodev:material-values:${MATERIAL_VALUES_VERSION}"
     api "com.amulyakhare:com.amulyakhare.textdrawable:${TEXTDRAWABLE_VERSION}"
+    api "com.github.lykmapipo:android-common:${ANDROID_COMMON_VERSION}"
 
     //test dependencies
     testImplementation "junit:junit:${JUNIT_VERSION}"
